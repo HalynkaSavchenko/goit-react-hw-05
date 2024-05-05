@@ -1,4 +1,31 @@
-export default function App() {}
-// e43200d8940fe818bd530547cf5c2e13
+import { lazy } from 'react'
+import { Route, Routes } from 'react-router-dom';
 
-// eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNDMyMDBkODk0MGZlODE4YmQ1MzA1NDdjZjVjMmUxMyIsInN1YiI6IjY2MzI4Yjc1YzM5MjY2MDEyMzZkMjdmZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.RQsvVhxxVhy90DlAAtpSgu5zv0LIIxEcn9FtWO3q_L0
+const HomePage = lazy(()=> import('../../pages/HomePage/HomePage'));
+const MoviesPage = lazy(() => import('../../pages/MoviesPage/MoviesPage'));
+const NotFoundPage = lazy(() => import('../../pages/NotFoundPage/NotFoundPage'));
+const MovieDetailsPage= lazy(() => import('../../pages/MovieDetailsPage/MovieDetailsPage'));
+const Layout = lazy(() => import('../Layout/Layout'));
+const MovieCast = lazy(() => import('../MovieCast/MovieCast'));
+const MovieReviews = lazy(() => import('../MovieReviews/MovieReviews'));
+
+
+
+export default function App() {
+    return (
+        <Layout>
+          <Routes>
+            <Route path='/' element={<HomePage/>}/>
+            <Route path='/movies' element={<MoviesPage/>}/>
+            <Route path='/movies/:movieId' element={<MovieDetailsPage/>}>
+              <Route path='cast' element={<MovieCast/>}/>
+              <Route path='reviews' element={<MovieReviews/>}/>
+            </Route>
+            <Route path='*' element={<NotFoundPage/>}/>
+          </Routes>
+        </Layout>
+    )
+}
+// 
+
+// 

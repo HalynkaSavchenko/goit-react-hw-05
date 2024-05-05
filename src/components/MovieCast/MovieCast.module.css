@@ -1,0 +1,26 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    grid-gap: 16px;
+}
+
+.item {
+    border: 1px solid var(--input-border-color);
+    border-radius: 6px;
+    box-shadow: 4px 4px 4px 2px var(--input-border-color);
+    background-color: rgba(56, 50, 56, 0.529);
+}
+
+.image {
+    border-radius: 6px;
+    box-shadow: 2px 2px 2px 2px var(--button-border-color);
+}
+
+.name {
+    margin-top: 10px;
+}
+
+.text {
+    font-size: 12px;
+    padding-bottom: 6px;
+}
