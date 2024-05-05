@@ -26,7 +26,7 @@ export const getDataCast = async(id) => {
 };
 
 export const getDataReviews = async(id) => {
-  const url = `${baseURL}/movie/${id}/reviews?language=uk-UKR`;
+  const url = `${baseURL}/movie/${id}/reviews?language=en-US`;
   return await axios.get(url, options)
 };
 
